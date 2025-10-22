@@ -733,7 +733,7 @@ Answer:
 # Set up professional plotting style
 plt.style.use('default')
 sns.set_palette("husl")
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(30,15))
 
 # Calculate service level metrics by category
 service_metrics = (
