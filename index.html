@@ -357,7 +357,7 @@ First few rows of product line data:
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Question 1: Data Types and Date Handling</strong> - What is the <code>dtype</code> of the <code>actualShipDate</code> series? How can you find out using code?</p>
-<div id="85593836" class="cell" data-execution_count="3">
+<div id="76af82cb" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shipments_df[<span class="st">'actualShipDate'</span>].dtype)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>datetime64[ns]</code></pre>
@@ -366,7 +366,7 @@ First few rows of product line data:
 <ul>
 <li>Why is it important that both <code>actualShipDate</code> and <code>plannedShipDate</code> have the same data type for comparison? #+ # Answer: Shape of actualShipDate and plannedShipDate must be the same for comparison.</li>
 </ul>
-<div id="786445dc" class="cell" data-execution_count="4">
+<div id="4f0ef64c" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#+</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Shape of actualShipDate and plannedShipDate</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#-</span></span>
@@ -378,7 +378,7 @@ First few rows of product line data:
 </div>
 </div>
 <p><strong>Question 2: String vs Date Comparison</strong> - Can you give an example where comparing two dates as strings would yield unintuitive results, e.g.&nbsp;what happens if you try to compare “04-11-2025” and “05-20-2024” as strings vs as dates?</p>
-<div id="a193b785" class="cell" data-execution_count="5">
+<div id="981eb460" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#+</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing dates as dates</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This example shows comparison of an invalid date, 14-11-2025, to a valid date, 05-20-2024.</span></span>
@@ -393,11 +393,11 @@ First few rows of product line data:
 <pre><code>04-11-2025 is later than 05-20-2024</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\whatf\AppData\Local\Temp\ipykernel_41852\3956864340.py:7: UserWarning: Parsing dates in %d-%m-%Y format when dayfirst=False (the default) was specified. Pass `dayfirst=True` or specify a format to silence this warning.
+<pre><code>C:\Users\whatf\AppData\Local\Temp\ipykernel_53072\3956864340.py:7: UserWarning: Parsing dates in %d-%m-%Y format when dayfirst=False (the default) was specified. Pass `dayfirst=True` or specify a format to silence this warning.
   if pd.to_datetime('14-11-2025') &gt; pd.to_datetime('05-20-2024'):</code></pre>
 </div>
 </div>
-<div id="01dc3908" class="cell" data-execution_count="6">
+<div id="72a6f3ea" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#+ </span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing dates as strings</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example shows comparaison of an invalid date, 14-11-2025, to a valid date, 05-20-2024.</span></span>
@@ -429,7 +429,7 @@ First few rows of product line data:
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># lateStatement=lambda df: df['is_late'].map({True: "Darn Shipment is Late", False: "Shipment is on Time"})</span></span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">#- </span></span>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>shipments_with_lateness</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="debug-code" class="cell-output cell-output-display" data-execution_count="43">
+<div id="debug-code" class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -585,7 +585,7 @@ First few rows of product line data:
 <p><strong>Question 2: String vs Date Comparison</strong> - Comparing dates as strings can yield unintuitive results because string comparison is lexicographical (alphabetical). For example, “04-11-2025” &gt; “05-20-2024” as strings (because “04” comes before “05” alphabetically), but as dates, 04-11-2025 is actually later than 05-20-2024.</p>
 <p><strong>Question 3: Debug This Code</strong> The original code had two main issues: 1. <strong>Reference Error</strong>: The code tried to use <code>shipments_df['is_late']</code> but <code>is_late</code> doesn’t exist in the original dataframe - it’s being created in the same <code>.assign()</code> call 2. <strong>Conditional Logic Error</strong>: You can’t use a simple <code>if/else</code> conditional directly on a pandas Series in this context</p>
 <p><strong>The Fix</strong>: Use a lambda function with <code>.map()</code> to apply the conditional logic element-wise:</p>
-<div id="38ae0f04" class="cell" data-execution_count="8">
+<div id="bc62dd19" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#+</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The fix is to use a lambda function with .map() to apply the conditional logic element-wise:</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># lateStatement=lambda df: df['is_late'].map({True: "Darn Shipment is Late", False: "Shipment is on Time"})</span></span>
@@ -593,7 +593,7 @@ First few rows of product line data:
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>lateStatement<span class="op">=</span><span class="kw">lambda</span> df: df[<span class="st">'is_late'</span>].<span class="bu">map</span>({<span class="va">True</span>: <span class="st">"Darn Shipment is Late"</span>, <span class="va">False</span>: <span class="st">"Shipment is on Time"</span>})</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lateStatement)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;function &lt;lambda&gt; at 0x000001D1AD7A4540&gt;</code></pre>
+<pre><code>&lt;function &lt;lambda&gt; at 0x000002BB1821D1C0&gt;</code></pre>
 </div>
 </div>
 <p>This approach: - Uses <code>lambda df:</code> to reference the current dataframe (which includes the newly created <code>is_late</code> column) - Uses <code>.map()</code> to apply the conditional logic to each element in the <code>is_late</code> Series - Maps <code>True</code> values to “Darn Shipment is Late” and <code>False</code> values to “Shipment is on Time”</p>
@@ -658,7 +658,7 @@ Late shipments sample:
 <li>Which approach is more readable and why? Answer: .query(‘is_late == True’) is more readable and concise.</li>
 </ul>
 <p><strong>Question 2: Additional Row Querying</strong> - Can you show an example of using a variable like <code>late_threshold</code> to query rows for shipments that are at least <code>late_threshold</code> days late, e.g.&nbsp;what if you wanted to query rows for shipments that are at least 5 days late? Answer:</p>
-<div id="cb3eaf70" class="cell" data-execution_count="10">
+<div id="ee3c9418" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>late_threshold <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>late_shipments <span class="op">=</span> shipments_with_lateness.query(<span class="ss">f'days_late &gt;= </span><span class="sc">{</span>late_threshold<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(late_shipments)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -698,7 +698,7 @@ Late shipments sample:
 <h4 class="anchored" data-anchor-id="briefly-give-answers-to-the-discussion-questions-in-this-section-1">Briefly Give Answers to the Discussion Questions In This Section</h4>
 <p><strong>Question 1: Query vs Boolean Indexing</strong> - <code>.query('is_late == True')</code> is a more readable and concise way to query rows based on conditions. It is equivalent to <code>[df['is_late'] == True]</code> but is more readable and concise. - <code>.query('is_late == True')</code> is more readable and concise.</p>
 <p><strong>Question 2: Additional Row Querying</strong> - Using a variable like <code>late_threshold</code> to query rows for shipments that are at least <code>late_threshold</code> days late, e.g.&nbsp;what if you wanted to query rows for shipments that are at least 5 days late? Answer:</p>
-<div id="c3c5f91d" class="cell" data-execution_count="11">
+<div id="165db63f" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>late_threshold <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>late_shipments <span class="op">=</span> shipments_with_lateness.query(<span class="ss">f'days_late &gt;= </span><span class="sc">{</span>late_threshold<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(late_shipments)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1056,7 +1056,7 @@ Answer: - Group analysis: Group analysis is the process of analyzing the data in
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/professional-visualization-1-output-1.png" id="professional-visualization-1" width="1588" height="790" class="figure-img"></p>
+<p><img src="index_files/figure-html/professional-visualization-1-output-1.png" id="professional-visualization-1" width="2988" height="1473" class="figure-img"></p>
 </figure>
 </div>
 </div>
