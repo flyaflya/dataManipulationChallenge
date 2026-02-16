@@ -73,11 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="quarto-light">
+<body class="fullcontent quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -113,8 +112,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Complete all discussion questions for the seven mental models (plus some extra requirements for higher grades)</li>
+<li>Complete discussion questions for at least 5 of the 7 mental models (for higher grades, complete all 7 plus additional requirements — see <a href="#grading-rubric">Grading Rubric</a> for details)</li>
 </ul>
+</div>
+</div>
+<section id="getting-started-repository-setup" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-repository-setup">Getting Started: Repository Setup 🚀</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📁 Getting Started
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Step 1:</strong> Fork the challenge repository to your own GitHub account</p>
+<ul>
+<li>Go to <a href="https://github.com/flyaflya/dataManipulationChallenge">https://github.com/flyaflya/dataManipulationChallenge</a></li>
+<li>Click the <strong>“Fork”</strong> button (top-right corner) to create your own copy of the repository under your GitHub account</li>
+<li><strong>Important:</strong> You must fork first so that you have your own repository to push changes to and deploy via GitHub Pages</li>
+</ul>
+<p><strong>Step 2:</strong> Clone <strong>your fork</strong> (not the original) to your local machine</p>
+<ul>
+<li>Navigate to <strong>your forked repository</strong> on GitHub (it will be at <code>https://github.com/YOUR-USERNAME/dataManipulationChallenge</code>)</li>
+<li>Click the green <strong>“&lt;&gt; Code”</strong> button on <strong>your fork’s</strong> GitHub page</li>
+<li>Copy the URL (HTTPS is recommended)</li>
+<li>Open Cursor, open a terminal, and run: <code>git clone &lt;paste-your-URL-here&gt;</code></li>
+<li>Open the cloned folder in Cursor</li>
+</ul>
+<p><strong>Step 3:</strong> Set up your Python environment (see <a href="#note-on-python-usage">Python Setup</a> section below)</p>
+<p><strong>Step 4:</strong> You’re ready to start! The data loading code is already provided in this file.</p>
+<p><strong>Note:</strong> This challenge uses the same <code>index.qmd</code> file you’re reading right now — you’ll edit it to complete your analysis.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💾 Important: Save Your Work Frequently!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Before you start:</strong> Make sure to commit your work often using the Source Control panel in Cursor (Ctrl+Shift+G or Cmd+Shift+G). This prevents the AI from overwriting your progress and ensures you don’t lose your work.</p>
+<p><strong>Commit after each major step:</strong></p>
+<ul>
+<li>After completing each mental model section</li>
+<li>After adding your visualizations</li>
+<li>After completing your advanced method chain</li>
+<li>Before asking the AI for help with new code</li>
+</ul>
+<p><strong>How to commit:</strong></p>
+<ol type="1">
+<li>Open Source Control panel (Ctrl+Shift+G)</li>
+<li>Stage your changes (+ button)</li>
+<li>Write a descriptive commit message</li>
+<li>Click the checkmark to commit</li>
+</ol>
+<p><em>Remember: Frequent commits are your safety net!</em></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -129,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container callout-body">
 <p><strong>Recommended Workflow: Use Your Existing Virtual Environment</strong> If you completed the Tech Setup Challenge Part 2, you already have a virtual environment set up! Here’s how to use it for this new challenge:</p>
 <ol type="1">
-<li><strong>Clone this new challenge repository</strong> (see Getting Started section below)</li>
+<li><strong>Fork and clone this challenge repository</strong> (see <a href="#getting-started-repository-setup-">Getting Started</a> section above for the link and detailed instructions)</li>
 <li><strong>Open the cloned repository in Cursor</strong></li>
 <li><strong>Set this project to use your existing Python interpreter:</strong>
 <ul>
@@ -169,6 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Why This Works:</strong> Virtual environments are portable - you can use the same environment across multiple projects, and Cursor automatically activates it when you select the interpreter!</p>
 </div>
 </div>
+</section>
 <section id="the-problem-mastering-data-manipulation-through-method-chaining" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem-mastering-data-manipulation-through-method-chaining">The Problem: Mastering Data Manipulation Through Method Chaining</h2>
 <p><strong>Core Question:</strong> How can we efficiently manipulate datasets using <code>pandas</code> method chaining to answer complex business questions?</p>
@@ -294,13 +353,29 @@ First few rows of product line data:
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Shipments Data:</strong> Contains individual line items for each shipment, including: - <code>shipID</code>: Unique identifier for each shipment - <code>partID</code>: Product identifier - <code>plannedShipDate</code>: When the shipment was supposed to go out - <code>actualShipDate</code>: When it actually shipped - <code>quantity</code>: How many units were shipped</p>
-<p><strong>Product Category and Line Data:</strong> Contains product category information: - <code>partID</code>: Links to shipments data - <code>productLine</code>: The category each product belongs to - <code>prodCategory</code>: The category each product belongs to</p>
+<p><strong>Product Category and Line Data:</strong> Contains product category information: - <code>partID</code>: Links to shipments data - <code>productLine</code>: The specific product line within a category - <code>prodCategory</code>: The broader category each product belongs to</p>
 <p><strong>Business Questions We’ll Answer:</strong> 1. Does service level (on-time shipments) vary across product categories? 2. How often do orders include products from more than one category?</p>
 </div>
 </div>
 </section>
 <section id="the-seven-mental-models-a-progressive-learning-journey" class="level2">
 <h2 class="anchored" data-anchor-id="the-seven-mental-models-a-progressive-learning-journey">The Seven Mental Models: A Progressive Learning Journey</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🎯 Method Chaining Philosophy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>“Each operation should build naturally on the previous one”</p>
+</blockquote>
+<p><em>Think of method chaining like building with LEGO blocks - each piece connects to the next, creating something more complex and useful than the individual pieces.</em></p>
+</div>
+</div>
 <p>Now we’ll work through each of the seven mental models using method chaining, starting simple and building complexity.</p>
 <section id="assign-adding-new-variables" class="level3">
 <h3 class="anchored" data-anchor-id="assign-adding-new-variables">1. Assign: Adding New Variables</h3>
@@ -367,12 +442,45 @@ First few rows of product line data:
 <p>What’s wrong with the <code>lateStatement</code> assignment and how would you fix it?</p>
 </div>
 </div>
-<section id="briefly-give-answers-to-the-discussion-questions-in-this-section" class="level4">
-<h4 class="anchored" data-anchor-id="briefly-give-answers-to-the-discussion-questions-in-this-section">Briefly Give Answers to the Discussion Questions In This Section</h4>
-<blockquote class="blockquote">
-<p>Replace this with your answers to the discussion questions</p>
-</blockquote>
-</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Data Types and Date Handling
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 1.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: String vs Date Comparison
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 2.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Debug This Code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 3.</em></p>
+</div>
+</div>
 </section>
 <section id="subset-querying-rows-and-filtering-columns" class="level3">
 <h3 class="anchored" data-anchor-id="subset-querying-rows-and-filtering-columns">2. Subset: Querying Rows and Filtering Columns</h3>
@@ -432,12 +540,32 @@ Late shipments sample:
 <p><strong>Question 2: Additional Row Querying</strong> - Can you show an example of using a variable like <code>late_threshold</code> to query rows for shipments that are at least <code>late_threshold</code> days late, e.g.&nbsp;what if you wanted to query rows for shipments that are at least 5 days late?</p>
 </div>
 </div>
-<section id="briefly-give-answers-to-the-discussion-questions-in-this-section-1" class="level4">
-<h4 class="anchored" data-anchor-id="briefly-give-answers-to-the-discussion-questions-in-this-section-1">Briefly Give Answers to the Discussion Questions In This Section</h4>
-<blockquote class="blockquote">
-<p>Replace this with your answers to the discussion questions</p>
-</blockquote>
-</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Query vs Boolean Indexing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 1.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Additional Row Querying
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 2.</em></p>
+</div>
+</div>
 </section>
 <section id="drop-removing-unwanted-data" class="level3">
 <h3 class="anchored" data-anchor-id="drop-removing-unwanted-data">3. Drop: Removing Unwanted Data</h3>
@@ -472,12 +600,32 @@ Remaining columns: ['shipID', 'plannedShipDate', 'actualShipDate', 'partID', 'is
 <p><strong>Question 2: Handling Missing Data</strong> - What happens if you use <code>.dropna()</code> without specifying <code>subset</code>? How is this different from <code>.dropna(subset=['plannedShipDate', 'actualShipDate'])</code>? - Why might you want to be selective about which columns to check for missing values?</p>
 </div>
 </div>
-<section id="briefly-give-answers-to-the-discussion-questions-in-this-section-2" class="level4">
-<h4 class="anchored" data-anchor-id="briefly-give-answers-to-the-discussion-questions-in-this-section-2">Briefly Give Answers to the Discussion Questions In This Section</h4>
-<blockquote class="blockquote">
-<p>Replace this with your answers to the discussion questions</p>
-</blockquote>
-</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Drop vs Filter Strategies
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 1.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Handling Missing Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 2.</em></p>
+</div>
+</div>
 </section>
 <section id="sort-arranging-data" class="level3">
 <h3 class="anchored" data-anchor-id="sort-arranging-data">4. Sort: Arranging Data</h3>
@@ -522,12 +670,32 @@ Remaining columns: ['shipID', 'plannedShipDate', 'actualShipDate', 'partID', 'is
 <p><strong>Question 2: Index Management</strong> - Why do we use <code>.reset_index(drop=True)</code> after sorting? - What happens to the original index when you sort? Why might this be problematic?</p>
 </div>
 </div>
-<section id="briefly-give-answers-to-the-discussion-questions-in-this-section-3" class="level4">
-<h4 class="anchored" data-anchor-id="briefly-give-answers-to-the-discussion-questions-in-this-section-3">Briefly Give Answers to the Discussion Questions In This Section</h4>
-<blockquote class="blockquote">
-<p>Replace this with your answers to the discussion questions</p>
-</blockquote>
-</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Sorting Strategies
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 1.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Index Management
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 2.</em></p>
+</div>
+</div>
 </section>
 <section id="aggregate-summarizing-data" class="level3">
 <h3 class="anchored" data-anchor-id="aggregate-summarizing-data">5. Aggregate: Summarizing Data</h3>
@@ -574,12 +742,19 @@ On-time delivery rate: 88.6%</code></pre>
 <p><strong>Question 1: Boolean Aggregation</strong> - Why does <code>sum()</code> work on boolean values? What does it count?</p>
 </div>
 </div>
-<section id="briefly-give-answers-to-the-discussion-questions-in-this-section-4" class="level4">
-<h4 class="anchored" data-anchor-id="briefly-give-answers-to-the-discussion-questions-in-this-section-4">Briefly Give Answers to the Discussion Questions In This Section</h4>
-<blockquote class="blockquote">
-<p>Replace this with your answers to the discussion questions</p>
-</blockquote>
-</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Boolean Aggregation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 1.</em></p>
+</div>
+</div>
 </section>
 <section id="merge-combining-information" class="level3">
 <h3 class="anchored" data-anchor-id="merge-combining-information">6. Merge: Combining Information</h3>
@@ -622,12 +797,32 @@ Name: count, dtype: int64</code></pre>
 <p><strong>Question 2: Key Column Matching</strong> - What happens if there are duplicate <code>partID</code> values in the <code>product_line_df</code>?</p>
 </div>
 </div>
-<section id="briefly-give-answers-to-the-discussion-questions-in-this-section-5" class="level4">
-<h4 class="anchored" data-anchor-id="briefly-give-answers-to-the-discussion-questions-in-this-section-5">Briefly Give Answers to the Discussion Questions In This Section</h4>
-<blockquote class="blockquote">
-<p>Replace this with your answers to the discussion questions</p>
-</blockquote>
-</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Join Types and Data Loss
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 1.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Key Column Matching
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 2.</em></p>
+</div>
+</div>
 </section>
 <section id="split-apply-combine-group-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="split-apply-combine-group-analysis">7. Split-Apply-Combine: Group Analysis</h3>
@@ -672,17 +867,37 @@ SpareParts      True   767  137  0.179    -1.003  21</code></pre>
 <p><strong>Question 2: Multi-Level Grouping</strong> - Explore grouping by <code>['shipID', 'prodCategory']</code>? What question does this answer versus grouping by <code>'prodCategory'</code> alone? (HINT: There may be many rows with identical shipID’s due to a particular order having multiple partID’s.)</p>
 </div>
 </div>
-<section id="briefly-give-answers-to-the-discussion-questions-in-this-section-6" class="level4">
-<h4 class="anchored" data-anchor-id="briefly-give-answers-to-the-discussion-questions-in-this-section-6">Briefly Give Answers to the Discussion Questions In This Section</h4>
-<blockquote class="blockquote">
-<p>Replace this with your answers to the discussion questions</p>
-</blockquote>
-</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: GroupBy Mechanics
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 1.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Multi-Level Grouping
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 2.</em></p>
+</div>
+</div>
 </section>
 </section>
 <section id="answering-a-business-question" class="level2">
 <h2 class="anchored" data-anchor-id="answering-a-business-question">Answering A Business Question</h2>
-<p><strong>Mental Model:</strong> Combine multiple data manipulation techniques to answer complex business questions.</p>
+<p><strong>Putting It All Together:</strong> Combine multiple data manipulation techniques to answer complex business questions.</p>
 <p>Let’s create a comprehensive analysis by combining shipment-level data with category information:</p>
 <div id="mental-model-7-comprehensive" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a comprehensive analysis dataset</span></span>
@@ -724,12 +939,19 @@ Percentage with multiple categories: 23.3%</code></pre>
 <p><strong>Question 1: Business Question Analysis</strong> - What business question does this comprehensive analysis answer? - How does grouping by <code>['shipID', 'prodCategory']</code> differ from grouping by just <code>'prodCategory'</code>? - What insights can ZappTech’s management gain from knowing the percentage of multi-category shipments?</p>
 </div>
 </div>
-<section id="briefly-give-answers-to-the-discussion-questions-in-this-section-7" class="level4">
-<h4 class="anchored" data-anchor-id="briefly-give-answers-to-the-discussion-questions-in-this-section-7">Briefly Give Answers to the Discussion Questions In This Section</h4>
-<blockquote class="blockquote">
-<p>Replace this with your answers to the discussion questions</p>
-</blockquote>
-</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Answer: Business Question Analysis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Replace this with your answer to Question 1.</em></p>
+</div>
+</div>
 </section>
 <section id="student-analysis-section" class="level2">
 <h2 class="anchored" data-anchor-id="student-analysis-section">Student Analysis Section: Mastering Data Manipulation</h2>
@@ -758,77 +980,6 @@ Percentage with multiple categories: 23.3%</code></pre>
 <p><strong>Your visualizations should:</strong> - Use clear labels and professional formatting - Support the insights from your discussion questions - Be appropriate for a business audience - Do not <code>echo</code> the code that creates the visualizations</p>
 </section>
 </section>
-<section id="challenge-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="challenge-requirements">Challenge Requirements 📋</h2>
-<p><strong>Your Primary Task:</strong> Answer all discussion questions for the seven mental models with thoughtful, well-reasoned responses that demonstrate your understanding of data manipulation concepts.</p>
-<p><strong>Key Requirements:</strong> - Complete discussion questions for each mental model - Demonstrate clear understanding of pandas concepts and data manipulation techniques - Write clear, business-focused analysis that explains your findings</p>
-</section>
-<section id="getting-started-repository-setup" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started-repository-setup">Getting Started: Repository Setup 🚀</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-📁 Getting Started
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Step 1:</strong> Fork and clone this challenge repository - Go to the course repository and find the “dataManipulationChallenge” folder - Fork it to your GitHub account, or clone it directly - Open the cloned repository in Cursor</p>
-<p><strong>Step 2:</strong> Set up your Python environment - Follow the Python setup instructions above (use your existing venv from Tech Setup Challenge Part 2) - Make sure your virtual environment is activated and the Python interpreter is set</p>
-<p><strong>Step 3:</strong> You’re ready to start! The data loading code is already provided in this file.</p>
-<p><strong>Note:</strong> This challenge uses the same <code>index.qmd</code> file you’re reading right now - you’ll edit it to complete your analysis.</p>
-</div>
-</div>
-<section id="getting-started-tips" class="level3">
-<h3 class="anchored" data-anchor-id="getting-started-tips">Getting Started Tips</h3>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-🎯 Method Chaining Philosophy
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<blockquote class="blockquote">
-<p>“Each operation should build naturally on the previous one”</p>
-</blockquote>
-<p><em>Think of method chaining like building with LEGO blocks - each piece connects to the next, creating something more complex and useful than the individual pieces.</em></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-💾 Important: Save Your Work Frequently!
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Before you start:</strong> Make sure to commit your work often using the Source Control panel in Cursor (Ctrl+Shift+G or Cmd+Shift+G). This prevents the AI from overwriting your progress and ensures you don’t lose your work.</p>
-<p><strong>Commit after each major step:</strong></p>
-<ul>
-<li>After completing each mental model section</li>
-<li>After adding your visualizations</li>
-<li>After completing your advanced method chain</li>
-<li>Before asking the AI for help with new code</li>
-</ul>
-<p><strong>How to commit:</strong></p>
-<ol type="1">
-<li>Open Source Control panel (Ctrl+Shift+G)</li>
-<li>Stage your changes (+ button)</li>
-<li>Write a descriptive commit message</li>
-<li>Click the checkmark to commit</li>
-</ol>
-<p><em>Remember: Frequent commits are your safety net!</em></p>
-</div>
-</div>
-</section>
-</section>
 <section id="grading-rubric" class="level2">
 <h2 class="anchored" data-anchor-id="grading-rubric">Grading Rubric 🎓</h2>
 <p><strong>75% Grade:</strong> Complete discussion questions for at least 5 of the 7 mental models with clear, thoughtful responses.</p>
@@ -838,48 +989,27 @@ Percentage with multiple categories: 23.3%</code></pre>
 </section>
 <section id="submission-checklist" class="level2">
 <h2 class="anchored" data-anchor-id="submission-checklist">Submission Checklist ✅</h2>
-<p><strong>Minimum Requirements (Required for Any Points):</strong></p>
+<p><strong>Setup &amp; Deployment (Required for Any Points):</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Created repository named “dataManipulationChallenge” in your GitHub account</label></li>
-<li><label><input type="checkbox">Cloned repository locally using Cursor (or VS Code)</label></li>
-<li><label><input type="checkbox">Completed discussion questions for at least 5 of the 7 mental models</label></li>
+<li><label><input type="checkbox">Forked repository from <a href="https://github.com/flyaflya/dataManipulationChallenge">flyaflya/dataManipulationChallenge</a> to your GitHub account</label></li>
+<li><label><input type="checkbox">Cloned <strong>your fork</strong> locally using Cursor (or VS Code)</label></li>
 <li><label><input type="checkbox">Document rendered to HTML successfully</label></li>
-<li><label><input type="checkbox">HTML files uploaded to your repository</label></li>
+<li><label><input type="checkbox">HTML files pushed to your repository</label></li>
 <li><label><input type="checkbox">GitHub Pages enabled and working</label></li>
 <li><label><input type="checkbox">Site accessible at <code>https://[your-username].github.io/dataManipulationChallenge/</code></label></li>
 </ul>
-<p><strong>75% Grade Requirements:</strong></p>
+<p><strong>Content (See <a href="#grading-rubric">Grading Rubric</a> for Grade Tiers):</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Complete discussion questions for at least 5 of the 7 mental models</label></li>
-<li><label><input type="checkbox">Clear, thoughtful responses that demonstrate understanding</label></li>
-<li><label><input type="checkbox">Code examples where appropriate to support explanations</label></li>
-</ul>
-<p><strong>85% Grade Requirements:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Complete discussion questions for all 7 mental models</label></li>
-<li><label><input type="checkbox">Comprehensive, well-reasoned responses showing deep understanding</label></li>
-<li><label><input type="checkbox">Business context for why concepts matter</label></li>
-<li><label><input type="checkbox">Examples of real-world applications</label></li>
-</ul>
-<p><strong>95% Grade Requirements:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Complete discussion questions for all 7 mental models</label></li>
-<li><label><input type="checkbox">Complete the “Answering A Business Question” discussion questions</label></li>
-<li><label><input type="checkbox">Comprehensive, well-reasoned responses showing deep understanding</label></li>
-<li><label><input type="checkbox">Business context for why concepts matter</label></li>
-</ul>
-<p><strong>100% Grade Requirements:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">All discussion questions completed with professional quality</label></li>
-<li><label><input type="checkbox">Professional visualization showing service level by product category</label></li>
-<li><label><input type="checkbox">Professional presentation style appropriate for business audience</label></li>
-<li><label><input type="checkbox">Clear, engaging narrative that tells a compelling story</label></li>
-<li><label><input type="checkbox">Practical insights that would help ZappTech’s management</label></li>
+<li><label><input type="checkbox">Discussion questions completed for at least 5 of 7 mental models (75%)</label></li>
+<li><label><input type="checkbox">Discussion questions completed for all 7 mental models (85%)</label></li>
+<li><label><input type="checkbox">“Answering A Business Question” discussion questions completed (95%)</label></li>
+<li><label><input type="checkbox">Professional visualization showing service level by product category (100%)</label></li>
 </ul>
 <p><strong>Report Quality (Critical for Higher Grades):</strong></p>
 <ul class="task-list">
 <li><label><input type="checkbox">Professional writing style (no AI-generated fluff)</label></li>
 <li><label><input type="checkbox">Concise analysis that gets to the point</label></li>
+<li><label><input type="checkbox">Code examples where appropriate to support explanations</label></li>
 </ul>
 </section>
 </section>

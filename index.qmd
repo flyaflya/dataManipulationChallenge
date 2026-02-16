@@ -3,7 +3,6 @@ title: "Data Manipulation Challenge"
 subtitle: "A Mental Model for Method Chaining in Pandas"
 format:
   html: default
-  pdf: default
 execute:
   echo: true
   eval: true
@@ -13,16 +12,64 @@ execute:
 
 ::: {.callout-important}
 ## 📊 Challenge Requirements In Section [Student Analysis Section](#student-analysis-section)
-- Complete all discussion questions for the seven mental models (plus some extra requirements for higher grades)
+- Complete discussion questions for at least 5 of the 7 mental models (for higher grades, complete all 7 plus additional requirements — see [Grading Rubric](#grading-rubric) for details)
+:::
+
+## Getting Started: Repository Setup 🚀
+
+::: {.callout-important}
+## 📁 Getting Started
+
+**Step 1:** Fork the challenge repository to your own GitHub account
+
+- Go to [https://github.com/flyaflya/dataManipulationChallenge](https://github.com/flyaflya/dataManipulationChallenge)
+- Click the **"Fork"** button (top-right corner) to create your own copy of the repository under your GitHub account
+- **Important:** You must fork first so that you have your own repository to push changes to and deploy via GitHub Pages
+
+**Step 2:** Clone **your fork** (not the original) to your local machine
+
+- Navigate to **your forked repository** on GitHub (it will be at `https://github.com/YOUR-USERNAME/dataManipulationChallenge`)
+- Click the green **"<> Code"** button on **your fork's** GitHub page
+- Copy the URL (HTTPS is recommended)
+- Open Cursor, open a terminal, and run: `git clone <paste-your-URL-here>`
+- Open the cloned folder in Cursor
+
+**Step 3:** Set up your Python environment (see [Python Setup](#note-on-python-usage) section below)
+
+**Step 4:** You're ready to start! The data loading code is already provided in this file.
+
+**Note:** This challenge uses the same `index.qmd` file you're reading right now — you'll edit it to complete your analysis.
+:::
+
+::: {.callout-warning}
+## 💾 Important: Save Your Work Frequently!
+
+**Before you start:** Make sure to commit your work often using the Source Control panel in Cursor (Ctrl+Shift+G or Cmd+Shift+G). This prevents the AI from overwriting your progress and ensures you don't lose your work.
+
+**Commit after each major step:**
+
+- After completing each mental model section
+- After adding your visualizations
+- After completing your advanced method chain
+- Before asking the AI for help with new code
+
+**How to commit:**
+
+1. Open Source Control panel (Ctrl+Shift+G)
+2. Stage your changes (+ button)
+3. Write a descriptive commit message
+4. Click the checkmark to commit
+
+*Remember: Frequent commits are your safety net!*
 :::
 
 ::: {.callout-important}
-## 🎯 Note on Python Usage
+## 🎯 Note on Python Usage {#note-on-python-usage}
 
 **Recommended Workflow: Use Your Existing Virtual Environment**
 If you completed the Tech Setup Challenge Part 2, you already have a virtual environment set up! Here's how to use it for this new challenge:
 
-1. **Clone this new challenge repository** (see Getting Started section below)
+1. **Fork and clone this challenge repository** (see [Getting Started](#getting-started-repository-setup-) section above for the link and detailed instructions)
 2. **Open the cloned repository in Cursor**
 3. **Set this project to use your existing Python interpreter:**
    - Press `Ctrl+Shift+P` → "Python: Select Interpreter"
@@ -148,8 +195,8 @@ print(product_line_df.head(10))
 
 **Product Category and Line Data:** Contains product category information:
 - `partID`: Links to shipments data
-- `productLine`: The category each product belongs to
-- `prodCategory`: The category each product belongs to
+- `productLine`: The specific product line within a category
+- `prodCategory`: The broader category each product belongs to
 
 **Business Questions We'll Answer:**
 1. Does service level (on-time shipments) vary across product categories?
@@ -157,6 +204,14 @@ print(product_line_df.head(10))
 :::
 
 ## The Seven Mental Models: A Progressive Learning Journey
+
+::: {.callout-note}
+## 🎯 Method Chaining Philosophy
+
+> "Each operation should build naturally on the previous one"
+
+*Think of method chaining like building with LEGO blocks - each piece connects to the next, creating something more complex and useful than the individual pieces.*
+:::
 
 Now we'll work through each of the seven mental models using method chaining, starting simple and building complexity.
 
@@ -216,9 +271,20 @@ shipments_with_lateness = (
 What's wrong with the `lateStatement` assignment and how would you fix it?
 :::
 
-#### Briefly Give Answers to the Discussion Questions In This Section
+::: {.callout-tip}
+## Your Answer: Data Types and Date Handling
+*Replace this with your answer to Question 1.*
+:::
 
-Adam's answers will be here.
+::: {.callout-tip}
+## Your Answer: String vs Date Comparison
+*Replace this with your answer to Question 2.*
+:::
+
+::: {.callout-tip}
+## Your Answer: Debug This Code
+*Replace this with your answer to Question 3.*
+:::
 
 ### 2. Subset: Querying Rows and Filtering Columns
 
@@ -261,9 +327,15 @@ print(late_shipments.head())
 - Can you show an example of using a variable like `late_threshold` to query rows for shipments that are at least `late_threshold` days late, e.g. what if you wanted to query rows for shipments that are at least 5 days late?
 :::
 
-#### Briefly Give Answers to the Discussion Questions In This Section
+::: {.callout-tip}
+## Your Answer: Query vs Boolean Indexing
+*Replace this with your answer to Question 1.*
+:::
 
-> Replace this with your answers to the discussion questions
+::: {.callout-tip}
+## Your Answer: Additional Row Querying
+*Replace this with your answer to Question 2.*
+:::
 
 ### 3. Drop: Removing Unwanted Data
 
@@ -299,9 +371,15 @@ print("Remaining columns:", clean_shipments.columns.tolist())
 
 :::
 
-#### Briefly Give Answers to the Discussion Questions In This Section
+::: {.callout-tip}
+## Your Answer: Drop vs Filter Strategies
+*Replace this with your answer to Question 1.*
+:::
 
-> Replace this with your answers to the discussion questions
+::: {.callout-tip}
+## Your Answer: Handling Missing Data
+*Replace this with your answer to Question 2.*
+:::
 
 ### 4. Sort: Arranging Data
 
@@ -337,9 +415,15 @@ print(sorted_by_lateness[['shipID', 'partID', 'days_late', 'is_late']].head(10))
 
 :::
 
-#### Briefly Give Answers to the Discussion Questions In This Section
+::: {.callout-tip}
+## Your Answer: Sorting Strategies
+*Replace this with your answer to Question 1.*
+:::
 
-> Replace this with your answers to the discussion questions
+::: {.callout-tip}
+## Your Answer: Index Management
+*Replace this with your answer to Question 2.*
+:::
 
 ### 5. Aggregate: Summarizing Data
 
@@ -377,9 +461,10 @@ print(f"\nOn-time delivery rate: {on_time_rate:.1f}%")
 
 :::
 
-#### Briefly Give Answers to the Discussion Questions In This Section
-
-> Replace this with your answers to the discussion questions
+::: {.callout-tip}
+## Your Answer: Boolean Aggregation
+*Replace this with your answer to Question 1.*
+:::
 
 ### 6. Merge: Combining Information
 
@@ -416,9 +501,15 @@ print(shipments_with_category['prodCategory'].value_counts())
 
 :::
 
-#### Briefly Give Answers to the Discussion Questions In This Section
+::: {.callout-tip}
+## Your Answer: Join Types and Data Loss
+*Replace this with your answer to Question 1.*
+:::
 
-> Replace this with your answers to the discussion questions
+::: {.callout-tip}
+## Your Answer: Key Column Matching
+*Replace this with your answer to Question 2.*
+:::
 
 ### 7. Split-Apply-Combine: Group Analysis
 
@@ -456,13 +547,19 @@ print(service_by_category)
 - Explore grouping by `['shipID', 'prodCategory']`?  What question does this answer versus grouping by `'prodCategory'` alone?  (HINT: There may be many rows with identical shipID's due to a particular order having multiple partID's.)
 :::
 
-#### Briefly Give Answers to the Discussion Questions In This Section
+::: {.callout-tip}
+## Your Answer: GroupBy Mechanics
+*Replace this with your answer to Question 1.*
+:::
 
-> Replace this with your answers to the discussion questions
+::: {.callout-tip}
+## Your Answer: Multi-Level Grouping
+*Replace this with your answer to Question 2.*
+:::
 
 ## Answering A Business Question
 
-**Mental Model:** Combine multiple data manipulation techniques to answer complex business questions.
+**Putting It All Together:** Combine multiple data manipulation techniques to answer complex business questions.
 
 Let's create a comprehensive analysis by combining shipment-level data with category information:
 
@@ -500,9 +597,10 @@ print(f"Percentage with multiple categories: {multi_category_shipments['shipID']
 - What insights can ZappTech's management gain from knowing the percentage of multi-category shipments?
 :::
 
-#### Briefly Give Answers to the Discussion Questions In This Section
-
-> Replace this with your answers to the discussion questions
+::: {.callout-tip}
+## Your Answer: Business Question Analysis
+*Replace this with your answer to Question 1.*
+:::
 
 ## Student Analysis Section: Mastering Data Manipulation {#student-analysis-section}
 
@@ -541,68 +639,7 @@ print(f"Percentage with multiple categories: {multi_category_shipments['shipID']
 - Be appropriate for a business audience
 - Do not `echo` the code that creates the visualizations
 
-## Challenge Requirements 📋
-
-**Your Primary Task:** Answer all discussion questions for the seven mental models with thoughtful, well-reasoned responses that demonstrate your understanding of data manipulation concepts.
-
-**Key Requirements:**
-- Complete discussion questions for each mental model
-- Demonstrate clear understanding of pandas concepts and data manipulation techniques
-- Write clear, business-focused analysis that explains your findings
-
-## Getting Started: Repository Setup 🚀
-
-::: {.callout-important}
-## 📁 Getting Started
-
-**Step 1:** Fork and clone this challenge repository
-- Go to the course repository and find the "dataManipulationChallenge" folder
-- Fork it to your GitHub account, or clone it directly
-- Open the cloned repository in Cursor
-
-**Step 2:** Set up your Python environment
-- Follow the Python setup instructions above (use your existing venv from Tech Setup Challenge Part 2)
-- Make sure your virtual environment is activated and the Python interpreter is set
-
-**Step 3:** You're ready to start! The data loading code is already provided in this file.
-
-**Note:** This challenge uses the same `index.qmd` file you're reading right now - you'll edit it to complete your analysis.
-:::
-
-
-### Getting Started Tips
-
-::: {.callout-note}
-## 🎯 Method Chaining Philosophy
-
-> "Each operation should build naturally on the previous one"
-
-*Think of method chaining like building with LEGO blocks - each piece connects to the next, creating something more complex and useful than the individual pieces.*
-:::
-
-::: {.callout-warning}
-## 💾 Important: Save Your Work Frequently!
-
-**Before you start:** Make sure to commit your work often using the Source Control panel in Cursor (Ctrl+Shift+G or Cmd+Shift+G). This prevents the AI from overwriting your progress and ensures you don't lose your work.
-
-**Commit after each major step:**
-
-- After completing each mental model section
-- After adding your visualizations
-- After completing your advanced method chain
-- Before asking the AI for help with new code
-
-**How to commit:**
-
-1. Open Source Control panel (Ctrl+Shift+G)
-2. Stage your changes (+ button)
-3. Write a descriptive commit message
-4. Click the checkmark to commit
-
-*Remember: Frequent commits are your safety net!*
-:::
-
-## Grading Rubric 🎓
+## Grading Rubric 🎓 {#grading-rubric}
 
 **75% Grade:** Complete discussion questions for at least 5 of the 7 mental models with clear, thoughtful responses.
 
@@ -614,47 +651,26 @@ print(f"Percentage with multiple categories: {multi_category_shipments['shipID']
 
 ## Submission Checklist ✅
 
-**Minimum Requirements (Required for Any Points):**
+**Setup & Deployment (Required for Any Points):**
 
-- [ ] Created repository named "dataManipulationChallenge" in your GitHub account
-- [ ] Cloned repository locally using Cursor (or VS Code)
-- [ ] Completed discussion questions for at least 5 of the 7 mental models
+- [ ] Forked repository from [flyaflya/dataManipulationChallenge](https://github.com/flyaflya/dataManipulationChallenge) to your GitHub account
+- [ ] Cloned **your fork** locally using Cursor (or VS Code)
 - [ ] Document rendered to HTML successfully
-- [ ] HTML files uploaded to your repository
+- [ ] HTML files pushed to your repository
 - [ ] GitHub Pages enabled and working
 - [ ] Site accessible at `https://[your-username].github.io/dataManipulationChallenge/`
 
-**75% Grade Requirements:**
+**Content (See [Grading Rubric](#grading-rubric) for Grade Tiers):**
 
-- [ ] Complete discussion questions for at least 5 of the 7 mental models
-- [ ] Clear, thoughtful responses that demonstrate understanding
-- [ ] Code examples where appropriate to support explanations
-
-**85% Grade Requirements:**
-
-- [ ] Complete discussion questions for all 7 mental models
-- [ ] Comprehensive, well-reasoned responses showing deep understanding
-- [ ] Business context for why concepts matter
-- [ ] Examples of real-world applications
-
-**95% Grade Requirements:**
-
-- [ ] Complete discussion questions for all 7 mental models
-- [ ] Complete the "Answering A Business Question" discussion questions
-- [ ] Comprehensive, well-reasoned responses showing deep understanding
-- [ ] Business context for why concepts matter
-
-**100% Grade Requirements:**
-
-- [ ] All discussion questions completed with professional quality
-- [ ] Professional visualization showing service level by product category
-- [ ] Professional presentation style appropriate for business audience
-- [ ] Clear, engaging narrative that tells a compelling story
-- [ ] Practical insights that would help ZappTech's management
+- [ ] Discussion questions completed for at least 5 of 7 mental models (75%)
+- [ ] Discussion questions completed for all 7 mental models (85%)
+- [ ] "Answering A Business Question" discussion questions completed (95%)
+- [ ] Professional visualization showing service level by product category (100%)
 
 **Report Quality (Critical for Higher Grades):**
 
 - [ ] Professional writing style (no AI-generated fluff)
 - [ ] Concise analysis that gets to the point
+- [ ] Code examples where appropriate to support explanations
 
 
